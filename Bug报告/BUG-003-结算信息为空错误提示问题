@@ -1,0 +1,32 @@
+BUG-003：结算信息页姓名为空时，错误提示仅聚焦 First Name
+基本信息
+项目	内容
+缺陷编号	BUG-003
+优先级	P2 - 中
+严重程度	Minor
+所属模块	结算流程 / 表单校验
+发现时间	2026-07-28
+测试环境	Firefox 153 / Windows 11/ 网络正常
+测试账号	standard_user / secret_sauce
+复现步骤
+使用 standard_user 登录
+添加任意商品到购物车
+进入购物车页，点击 Checkout
+在结算信息页：
+First Name 留空
+Last Name 留空
+Zip/Postal Code 留空
+点击 Continue
+预期结果
+应对所有必填项进行一次性校验
+提示类似："First Name、Last Name、Zip/Postal Code 为必填项"
+减少用户反复提交的次数，提升体验
+实际结果
+仅提示："Error: First Name is required"
+用户修复 First Name 后再次提交，才会提示 Last Name 为空
+再次修复后，才会提示 Zip 为空
+采用逐条校验，而非一次性全量提示
+**商品列表页（异常）：**
+![结算信息为空仅聚焦第一处错误](saucedemo-test/截图/BUG-003-结算姓名为空（1）.png)
+                              (saucedemo-test/截图/BUG-003-结算姓名为空（2）.png)
+                              (saucedemo-test/截图/BUG-003-结算姓名为空（3）.png)
