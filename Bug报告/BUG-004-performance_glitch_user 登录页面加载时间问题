@@ -1,0 +1,24 @@
+BUG-004：performance_glitch_user 登录后页面加载时间超过 5 秒
+基本信息
+项目	内容
+缺陷编号	BUG-004
+优先级	P1 - 高
+严重程度	Major
+所属模块	性能 / 登录加载
+发现时间	2026-07-28
+测试环境	Firefox 153 / Windows 11/ 网络正常
+测试账号	performance_glitch_user / secret_sauce
+复现步骤
+访问 https://www.saucedemo.com
+输入用户名：`performance_glitc_user`
+输入密码：`secret_sauce`
+点击 Login 按钮
+使用秒表或 DevTools Network 面板记录加载时间
+预期结果
+登录响应时间应控制在 2 秒
+不同用户角色的登录体验应保持一致
+若该账号用于模拟性能问题，应在文档中明确说明
+实际结果
+点击 Login 后，页面白屏/转圈约 5-6 秒 才跳转至商品列表
+同一网络环境下，standard_user 登录仅需 <1 秒
+商品列表页加载完成后，各商品图片也是逐张延迟加载
